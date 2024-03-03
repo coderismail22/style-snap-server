@@ -7,7 +7,9 @@ const { MongoClient, ServerApiVersion } = require("mongodb");
 const app = express();
 const port = process.env.PORT || 2500;
 app.use(cors());
+
 const productsRoutes = require("./routes/products");
+const categoryRoute = require("./routes/categoryRoute");
 // console.log("productRoutes", productsRoutes);
 
 // Server Body Start
@@ -48,6 +50,7 @@ run().catch(console.dir);
 
 // Routes
 app.use("/allProducts", productsRoutes);
+app.use("/", categoryRoute);
 
 // Server Body End
 app.listen(port, () => {
