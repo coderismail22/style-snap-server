@@ -10,6 +10,8 @@ app.use(cors());
 
 const productsRoutes = require("./routes/products");
 const categoryRoute = require("./routes/categoryRoute");
+const trendingRoute = require("./routes/trendingRoute");
+const filterRoute = require("./routes/filterRoute");
 // console.log("productRoutes", productsRoutes);
 
 // Server Body Start
@@ -50,7 +52,9 @@ run().catch(console.dir);
 
 // Routes
 app.use("/allProducts", productsRoutes);
+app.use("/trending", trendingRoute);
 app.use("/", categoryRoute);
+app.use("/filteredproducts", filterRoute);
 
 // Server Body End
 app.listen(port, () => {
